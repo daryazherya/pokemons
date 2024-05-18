@@ -21,7 +21,7 @@ function App() {
             dispatch({type: 'ALL_POKEMONS', pokemons: data.allPokemons, count: data.count })
         }) 
         
-    },[pageNumber, pageSize]) 
+    },[pageNumber, pageSize, dispatch]) 
 
 
     return (
