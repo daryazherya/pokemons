@@ -3,11 +3,10 @@ import { totalPagesSelector } from "../../redux/totalPagesSelector";
 
 const PaginationSection = () => {
     const pageNumber = useSelector(state => state.pagination.pageNumber);
-    const pageSize = useSelector(state => state.pagination.pageSize);
+    // const pageSize = useSelector(state => state.pagination.pageSize);
     const totalPages = useSelector((state) => totalPagesSelector(state));
     const dispatch = useDispatch();
-    console.log(pageNumber,pageSize,totalPages,'page');
-
+    // console.log(pageNumber,pageSize,totalPages,'page');
 
 
     return <div className="wrapper-buttons">

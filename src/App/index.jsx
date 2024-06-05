@@ -5,23 +5,21 @@ import { fetchPokemons } from "../api/api";
 import { useDispatch, useSelector } from "react-redux";
 import PaginationSection from "../components/Pagination/PaginationSection";
 import SelectSizePage from "../components/SelectSizePage/SelectSizePage";
+import { getAllPokemons } from "../redux/getAllPokemons";
 
 
 function App() {
     
     // const [ pokemonIds, setPokemonIds ] = useState(() => localStorage.getItem('pokemonIds') ? JSON.parse(localStorage.getItem('pokemonIds')) : []);
     const pokemonIds = useSelector(state => state.pokemonIds);
-    const pageNumber = useSelector(state => state.pagination.pageNumber);
-    const pageSize = useSelector(state => state.pagination.pageSize);
     const count = useSelector(state => state.pagination.count);
     const dispatch = useDispatch();  
     
     useEffect(() => {
-        fetchPokemons(pageNumber, pageSize).then((data) => {
-            dispatch({type: 'ALL_POKEMONS', pokemons: data.allPokemons, count: data.count })
-        }) 
+        // getAllPokemons(pageNumber,pageSize)(dispatch)
+        dispatch(getAllPokemons(5, 18))
         
-    },[pageNumber, pageSize, dispatch]) 
+    },[dispatch]) 
 
 
     return (
