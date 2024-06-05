@@ -1,7 +1,6 @@
 import MainPage from "../components/mainPage";
 import './index.scss';
 import { useEffect } from "react";
-import { fetchPokemons } from "../api/api";
 import { useDispatch, useSelector } from "react-redux";
 import PaginationSection from "../components/Pagination/PaginationSection";
 import SelectSizePage from "../components/SelectSizePage/SelectSizePage";
@@ -17,7 +16,7 @@ function App() {
     
     useEffect(() => {
         // getAllPokemons(pageNumber,pageSize)(dispatch)
-        dispatch(getAllPokemons(5, 18))
+        dispatch(getAllPokemons(1,10))
         
     },[dispatch]) 
 

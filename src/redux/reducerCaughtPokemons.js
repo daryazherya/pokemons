@@ -1,11 +1,15 @@
-const initialState = ['2', '5'];
+const initialState =  localStorage.getItem('pokemonIds') ? JSON.parse(localStorage.getItem('pokemonIds')) : []
 
 export function reducerCaughtPokemons(state = initialState, action) {
     if (action.type === "CATCH_POKEMON") {
         if (!state.includes(action.id)) {
-            return [...state, action.id];
+            const newState = [...state, action.id];
+            localStorage.setItem('pokemonIds',JSON.stringify(newState))
+            return newState;
         } else {
-            return state.filter((caught) => caught !== action.id);
+            const newState = state.filter((caught) => caught !== action.id);
+            localStorage.setItem('pokemonIds',JSON.stringify(newState))
+            return newState
         }
     }
 

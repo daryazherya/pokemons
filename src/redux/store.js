@@ -44,18 +44,6 @@ const m3 = (store) => (next) => (action) => {
     next(action);
 };
 
-// const delayedActionMiddleware = storeAPI => next => action => {
-//     if (action.type === 'CATCH_POKEMON') {
-//       setTimeout(() => {
-//         // Delay this action by one second
-//         next(action)
-//       }, 1000)
-//       return
-//     }
-
-//     return next(action)
-//   }
-
 export const store = createStore(
     reducer,
     applyMiddleware(
